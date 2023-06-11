@@ -61,7 +61,6 @@ local plugins = {
   },
   {
     'stevearc/dressing.nvim',
-    opts = {},
   },
   "github/copilot.vim",
   "j-hui/fidget.nvim",
