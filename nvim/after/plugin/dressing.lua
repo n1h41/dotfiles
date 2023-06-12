@@ -4,8 +4,6 @@ if (not status) then
   return
 end
 
-print("hello")
-
 dressing.setup({
   input = {
     win_options = {
