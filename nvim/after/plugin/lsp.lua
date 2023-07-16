@@ -99,7 +99,7 @@ lsp_zero.capabilities = capabilities
 
 vim.diagnostic.config({
     virtual_text = true,
-    signs = false,
+    signs = true,
 })
 
 lsp_zero.setup()

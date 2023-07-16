@@ -4,4 +4,8 @@ if not status then
   return
 end
 
-null_ls.setup{}
+null_ls.setup{
+  sources = {
+    null_ls.builtins.hover.dictionary
+  }
+}

@@ -208,7 +208,6 @@ local plugins = {
   -- Live Server
   {
     'barrett-ruth/live-server.nvim',
-    build = 'npm install -g live-server',
     config = function()
       require('live-server').setup()
     end,
@@ -253,7 +252,11 @@ local plugins = {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  }
+  },
+  -- Flutter
+  -- Flutter Snippets
+  "RobertBrunhage/flutter-riverpod-snippets",
+  "Neevash/awesome-flutter-snippets",
 }
 
 require('lazy').setup(plugins, {})
