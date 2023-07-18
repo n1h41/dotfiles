@@ -9,6 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   'wbthomason/packer.nvim',
+  { "folke/neodev.nvim", opts = {} },
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',

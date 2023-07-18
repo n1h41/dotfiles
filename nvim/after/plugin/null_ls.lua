@@ -6,6 +6,8 @@ end
 
 null_ls.setup{
   sources = {
-    null_ls.builtins.hover.dictionary
+    null_ls.builtins.hover.dictionary,
+    null_ls.builtins.formatting.prettierd,
+    -- null_ls.builtins.diagnostics.elint_d,
   }
 }
