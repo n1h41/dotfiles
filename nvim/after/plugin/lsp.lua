@@ -60,6 +60,10 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
+  if client.server_capabilities.colorProvider then
+    require("document-color").buf_attach(bufnr)
+  end
 end
 
 local protocol = require('vim.lsp.protocol')
@@ -96,10 +100,16 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp_zero.on_attach(on_attach)
 
+capabilities.textDocument.colorProvider = {
+  dynamicRegistration = true
+}
+
 lsp_zero.capabilities = capabilities
 
 
 lsp_zero.configure('tsserver', {
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" }
 })

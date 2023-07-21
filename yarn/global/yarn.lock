@@ -74,6 +74,11 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
+create-next-app@^13.4.11:
+  version "13.4.11"
+  resolved "https://registry.yarnpkg.com/create-next-app/-/create-next-app-13.4.11.tgz#b43a1c1580fd5342f6275693eea286297e9ed896"
+  integrity sha512-GxuuAmT55Y2zQiE3BRx+plUOn/+c+7U/m99LbBa2qwfQKageLNSY+Prf0yhJj6PMGe7g7lzv87pTGvX3jtQPEg==
+
 create-react-app@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/create-react-app/-/create-react-app-5.0.1.tgz#b0d30d89aaa4f09bbd8bc2f2bcb3fb5637e01af6"

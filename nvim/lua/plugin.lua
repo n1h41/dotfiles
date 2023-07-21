@@ -258,6 +258,15 @@ local plugins = {
   -- Flutter Snippets
   "RobertBrunhage/flutter-riverpod-snippets",
   "Neevash/awesome-flutter-snippets",
+  -- Color highlight in files
+  {
+    "mrshmllow/document-color.nvim",
+    config = function()
+      require("document-color").setup {
+        mode = "background", -- background | foreground | single
+      }
+    end
+  }
 }
 
 require('lazy').setup(plugins, {})
