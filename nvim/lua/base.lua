@@ -72,4 +72,10 @@ vim.g.copilot_filetypes = {
 }
 
 -- Remove tilde character
-vim.wo.fillchars='eob: '
+vim.opt.fillchars = {
+  -- fold = ' ',
+  -- vert = '|',
+  eob = ' ',
+  msgsep = '‾',
+
+}

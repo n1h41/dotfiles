@@ -36,10 +36,10 @@ keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sl', '<C-w>l')
 
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
+keymap.set('n', 's<left>', '<C-w>>')
+keymap.set('n', 's<right>', '<C-w><')
+keymap.set('n', 's<up>', '<C-w>+')
+keymap.set('n', 's<down>', '<C-w>-')
 
 -- Format
 keymap.set("n", "<S-A-f>", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })

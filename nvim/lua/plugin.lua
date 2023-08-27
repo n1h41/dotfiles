@@ -74,8 +74,8 @@ local plugins = {
       -- keywords recognized as todo comments
       keywords = {
         FIX = {
-          icon = " ",                              -- icon used for the sign, and in search results
-          color = "error",                            -- can be a hex color, or a named color (see below)
+          icon = " ", -- icon used for the sign, and in search results
+          color = "error", -- can be a hex color, or a named color (see below)
           alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
           -- signs = false, -- configure signs for some keywords individually
         },
@@ -255,6 +255,14 @@ local plugins = {
     dependencies = { { 'nvim-tree/nvim-web-devicons' } }
   },
   -- Flutter
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+  },
   -- Flutter Snippets
   "RobertBrunhage/flutter-riverpod-snippets",
   "Neevash/awesome-flutter-snippets",
@@ -266,6 +274,21 @@ local plugins = {
         mode = "background", -- background | foreground | single
       }
     end
+  },
+  -- ChatGPT
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd =  "pass show api/tokens/openai",
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   }
 }
 
