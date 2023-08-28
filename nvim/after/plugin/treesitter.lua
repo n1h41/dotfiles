@@ -21,6 +21,7 @@ ts.setup {
     "go",
     "html",
     "css",
+    "c_sharp",
   },
   autotag = {
     enable = true,
