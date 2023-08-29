@@ -276,6 +276,10 @@ local plugins = {
       }
     end
   },
+  -- Golang Debugger
+  {
+    "leoluz/nvim-dap-go"
+  }
   -- ChatGPT
   -- {
   --   "jackMort/ChatGPT.nvim",
