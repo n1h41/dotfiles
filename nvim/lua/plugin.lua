@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not vim.loop.fs_stat(lazypath) then
@@ -229,7 +230,7 @@ local plugins = {
       {
         'theHamsta/nvim-dap-virtual-text',
         config = function()
-          require('nvim-dap-virtual-text').setup()
+          require('nvim-dap-virtual-text').setup({})
         end
       }
     },

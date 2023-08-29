@@ -22,7 +22,7 @@ nvim_tree.setup({
   },
   view = {
     float = {
-      enable = true,
+      enable = false,
     }
   },
   actions = {
