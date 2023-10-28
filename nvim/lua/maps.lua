@@ -27,13 +27,19 @@ keymap.set('n', '<S-Tab>', 'gT')
 keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
 
--- Move window
+-- Move to window
 keymap.set('n', '<Space><Space>', '<C-w>w')
 keymap.set('n', 'sc', '<C-w>c')
 keymap.set('', 'sh', '<C-w>h')
 keymap.set('', 'sk', '<C-w>k')
 keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sl', '<C-w>l')
+
+-- Move window
+keymap.set('', 'sH', '<C-w>H')
+keymap.set('', 'sK', '<C-w>K')
+keymap.set('', 'sJ', '<C-w>J')
+keymap.set('', 'sL', '<C-w>L')
 
 -- Resize window
 keymap.set('n', 's<left>', '<C-w>>')
@@ -44,4 +50,7 @@ keymap.set('n', 's<down>', '<C-w>-')
 -- Format
 keymap.set("n", "<S-A-f>", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
 
-keymap.set("n", "<C-i>", "<C-i>", { noremap = true, silent = true })
+keymap.set('n', "<C-i>", "<C-i>", { noremap = true })
+
+-- Copy current file name to clipboard
+keymap.set('n', '<leader>fn', ':let @+=expand("%:t")<CR>')

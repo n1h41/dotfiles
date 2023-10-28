@@ -11,6 +11,26 @@ nvim_tree.setup({
   },
   renderer = {
     root_folder_modifier = ":t",
+    icons = {
+      git_placement = "after",
+      show = {
+        file = true,
+        folder = true,
+        git = true,
+        folder_arrow = true,
+      },
+      glyphs = {
+        git = {
+          unstaged = "U",
+          staged = "S",
+          unmerged = "UM",
+          renamed = "R",
+          untracked = "UT",
+          deleted = "D",
+          ignored = "I",
+        },
+      }
+    }
   },
   diagnostics = {
     enable = true,
@@ -27,8 +47,14 @@ nvim_tree.setup({
   },
   actions = {
     change_dir = {
-      enable = false,
+      enable = true,
       restrict_above_cwd = true,
+    }
+  },
+  tab = {
+    sync = {
+      open = true,
+      close = true,
     }
   }
 })

@@ -68,7 +68,5 @@ dashboard.setup({
         action = 'edit ~/.config/nvim/init.lua',
       }, ]]
     },
-    footer = {
-    }
   }
 })

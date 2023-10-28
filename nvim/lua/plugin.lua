@@ -83,8 +83,8 @@ local plugins = {
         TODO = { icon = " ", color = "info" },
         HACK = { icon = " ", color = "warning" },
         WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+        PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE = { icon = "󱜾 ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
       },
       gui_style = {
@@ -138,9 +138,23 @@ local plugins = {
   "tpope/vim-fugitive",
   {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
+    --[[ opts = {
+      on_attach = function(bufnr)
+        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+        -- don't override the built-in and fugitive keymaps
+        local gs = package.loaded.gitsigns
+        vim.keymap.set({ 'n', 'v' }, ']c', function()
+          if vim.wo.diff then return ']c' end
+          vim.schedule(function() gs.next_hunk() end)
+          return '<Ignore>'
+        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+        vim.keymap.set({ 'n', 'v' }, '[c', function()
+          if vim.wo.diff then return '[c' end
+          vim.schedule(function() gs.prev_hunk() end)
+          return '<Ignore>'
+        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+      end,
+    } ]]
   },
   -- File explorer
   {
@@ -279,7 +293,17 @@ local plugins = {
   -- Golang Debugger
   {
     "leoluz/nvim-dap-go"
-  }
+  },
+  -- Database Management
+  {
+    "tpope/vim-dadbod",
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+  },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+  },
   -- ChatGPT
   -- {
   --   "jackMort/ChatGPT.nvim",
@@ -295,6 +319,34 @@ local plugins = {
   --     "nvim-telescope/telescope.nvim"
   --   }
   -- }
+  {
+    'navarasu/onedark.nvim'
+  },
+  { "catppuccin/nvim",   name = "catppuccin", priority = 1000 },
+  -- lazy.nvim
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+  -- Lua
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+    }
+  },
+  -- PGSQL
+  { 'lifepillar/pgsql.vim' }
 }
 
 require('lazy').setup(plugins, {})

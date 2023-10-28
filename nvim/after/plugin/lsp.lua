@@ -191,6 +191,15 @@ flutter.setup {
   }
 }
 
+local util = require("lspconfig.util")
+
+lsp_zero.configure('gopls', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+})
+
 lsp_zero.setup()
 
 require("fidget").setup({})

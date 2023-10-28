@@ -3,12 +3,17 @@ if (not status) then return end
 
 saga.setup({
   ui = {
+    code_action = '',
     winblend = 0,
     border = 'rounded',
-    colors = {
+    --[[ colors = {
       normal_bg = '#002b36'
-    }
+    } ]]
   }
+})
+
+vim.diagnostic.config({
+  virtual_text = true,
 })
 
 local opts = { noremap = true, silent = true }

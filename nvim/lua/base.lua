@@ -40,8 +40,8 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = '*',
-    command = "set nopaste"
+  pattern = '*',
+  command = "set nopaste"
 })
 
 -- Add asterisks in block comments
@@ -68,7 +68,7 @@ vim.g.neovide_cursor_trail_size = 0.3
 -- copilot
 
 vim.g.copilot_filetypes = {
-    TelescopePrompt = false,
+  TelescopePrompt = false,
 }
 
 -- Remove tilde character
@@ -79,3 +79,12 @@ vim.opt.fillchars = {
   msgsep = '‾',
 
 }
+
+-- custom indentation for csharp files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = 'cs',
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+  end
+})
