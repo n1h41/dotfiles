@@ -1,4 +1,3 @@
-github-copilot
-htop
-lazygit
-neofetch
+./*
+!nvim/
+!tmux/
