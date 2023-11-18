@@ -1,8 +1,0 @@
-{
-	"preferences": {
-		"eslint": true,
-		"tailwind": true,
-		"srcDir": true,
-		"typescript": true
-	}
-}
