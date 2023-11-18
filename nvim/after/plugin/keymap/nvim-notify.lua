@@ -1,4 +1,4 @@
-local status, whichkey = pcall(require, "which-key")
+--[[ local status, whichkey = pcall(require, "which-key")
 if (not status) then
   return
 end
@@ -12,4 +12,4 @@ local keymap = {
 whichkey.register(keymap, {
   silent = true,
   noremap = true,
-})
+}) ]]

@@ -324,7 +324,7 @@ local plugins = {
   },
   { "catppuccin/nvim",   name = "catppuccin", priority = 1000 },
   -- lazy.nvim
-  {
+  --[[ {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
@@ -338,7 +338,7 @@ local plugins = {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
-  },
+  }, ]]
   -- Lua
   {
     "folke/zen-mode.nvim",
