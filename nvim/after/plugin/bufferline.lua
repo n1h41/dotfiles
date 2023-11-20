@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local status, bufferline = pcall(require, "bufferline")
 if (not status) then return end
 
@@ -14,7 +15,6 @@ bufferline.setup({
     color_icons = true,
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = true,
-    always_show_bufferline = true,
     offsets = {
       {
         filetype = "NvimTree",
