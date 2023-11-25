@@ -3,12 +3,15 @@ if (not status) then return end
 
 saga.setup({
   ui = {
-    code_action = '',
     winblend = 0,
     border = 'rounded',
-    --[[ colors = {
+    colors = {
       normal_bg = '#002b36'
-    } ]]
+    }
+  },
+  lightbulb = {
+    enable = false,
+    enable_in_insert = false
   }
 })
 
@@ -26,7 +29,7 @@ local keymap = vim.keymap.set
 keymap("n", "gh", "<cmd>Lspsaga finder<CR>", opts)
 
 -- Code action
-keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 
 -- Rename all occurrences of the hovered word for the entire file
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
@@ -42,7 +45,7 @@ keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
 
 -- Go to definition
-keymap("n","gd", "<cmd>Lspsaga goto_definition<CR>", opts)
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 
 -- Peek type definition
 -- You can edit the file containing the type definition in the floating window
@@ -83,7 +86,7 @@ keymap("n", "]E", function()
 end, opts)
 
 -- Toggle outline
-keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>", opts)
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 
 -- Hover Doc
 -- If there is no hover doc,
@@ -91,6 +94,30 @@ keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>", opts)
 -- there is no information available.
 -- To disable it just use ":Lspsaga hover_doc ++quiet"
 -- Pressing the key twice will enter the hover window
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+
+-- If you want to keep the hover window in the top right hand corner,
+-- you can pass the ++keep argument
+-- Note that if you use hover with ++keep, pressing this key again will
+-- close the hover window. If you want to jump to the hover window
+-- you should use the wincmd command "<C-w>w"
+--keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>", opts)
+
+-- Call hierarchy
+keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts)
+keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts)
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+
+-- If you want to keep the hover window in the top right hand corner,
+-- you can pass the ++keep argument
+-- Note that if you use hover with ++keep, pressing this key again will
+-- close the hover window. If you want to jump to the hover window
+-- you should use the wincmd command "<C-w>w"
+--keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>", opts)
+
+-- Call hierarchy
+keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", opts)
+keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", opts)
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 
 -- If you want to keep the hover window in the top right hand corner,

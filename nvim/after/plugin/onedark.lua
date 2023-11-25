@@ -18,6 +18,8 @@ onedark.setup({
   highlights = {
     ["DashboardHeader"] = { fg = "#758ed3" },
     ["DashboardShortCut"] = { fg = "white" },
+    ["NormalFloat"] = { bg = "NONE" },
+    ["HoverBorder"] = { bg = "NONE" }
   }
 })
 
