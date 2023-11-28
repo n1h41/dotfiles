@@ -10,6 +10,7 @@ nvim_tree.setup({
     update_cwd = true,
   },
   renderer = {
+    full_name = true,
     root_folder_modifier = ":t",
     icons = {
       git_placement = "after",

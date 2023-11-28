@@ -94,3 +94,6 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
+
+[os]
+disabled = false
