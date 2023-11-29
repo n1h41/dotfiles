@@ -32,7 +32,7 @@ dashboard.setup({
       },
     center = {
       {
-        icon = '  ',
+        icon = '󰈞  ',
         icon_hl = 'group',
         desc = 'Find Files',
         desc_hl = 'group',
