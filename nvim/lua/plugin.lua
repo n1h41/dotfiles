@@ -366,6 +366,10 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     }
+  },
+  -- Vscode theme
+  {
+    'Mofiqul/vscode.nvim'
   }
 }
 
