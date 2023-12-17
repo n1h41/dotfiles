@@ -370,6 +370,14 @@ local plugins = {
   -- Vscode theme
   {
     'Mofiqul/vscode.nvim'
+  },
+  -- Llama
+  {
+    'jpmcb/nvim-llama'
+  },
+  -- Diffview
+  {
+    "sindrets/diffview.nvim"
   }
 }
 

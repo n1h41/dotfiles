@@ -20,7 +20,7 @@ local keymap = {
       s = { function()
         local widgets = require("dap.ui.widgets");
         local sidebar = widgets.sidebar(widgets.scopes);
-        sidebar.open();
+        sidebar.toggle();
       end, "UI Sidebar" }
     },
     x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
@@ -41,7 +41,7 @@ local keymap = {
         "Debug Last Go test"
       }
     },
-    a = {  }
+    a = {}
   }
 }
 
