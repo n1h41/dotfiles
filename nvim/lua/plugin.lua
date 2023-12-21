@@ -378,7 +378,7 @@ local plugins = {
   -- Diffview
   {
     "sindrets/diffview.nvim"
-  }
+  },
 }
 
 require('lazy').setup(plugins, {})
