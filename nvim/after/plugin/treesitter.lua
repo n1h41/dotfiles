@@ -1,6 +1,7 @@
 local status, ts = pcall(require, "nvim-treesitter.configs")
 if (not status) then return end
 
+---@diagnostic disable-next-line: missing-fields
 ts.setup {
   highlight = {
     enable = true,
@@ -22,6 +23,8 @@ ts.setup {
     "html",
     "css",
     "c_sharp",
+    "http",
+    "json",
   },
   autotag = {
     enable = true,
