@@ -389,6 +389,12 @@ local plugins = {
         --- Get the same options from Packer setup
       })
     end
+  },
+  -- Live server
+  {
+    'barrett-ruth/live-server.nvim',
+    build = 'npm -g install live-server',
+    config = true
   }
 }
 

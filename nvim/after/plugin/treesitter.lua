@@ -25,6 +25,7 @@ ts.setup {
     "c_sharp",
     "http",
     "json",
+    "templ"
   },
   autotag = {
     enable = true,

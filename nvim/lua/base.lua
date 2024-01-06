@@ -88,3 +88,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.tabstop = 4
   end
 })
+
+vim.filetype.add({ extension = { templ = "templ" } })

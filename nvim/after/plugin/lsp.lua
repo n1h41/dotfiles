@@ -6,7 +6,7 @@ end
 
 lsp_zero.preset('recommended')
 
-lsp_zero.ensure_installed({ 'tsserver', 'eslint', 'lua_ls', "gopls", "html", "cssls", "tailwindcss" })
+lsp_zero.ensure_installed({ 'tsserver', 'eslint', 'lua_ls', "gopls", "html", "cssls", "tailwindcss", "templ" })
 
 
 local cmp = require('cmp')
@@ -142,7 +142,7 @@ flutter.setup {
     }
   },
 
-  debugger = { -- integrate with nvim dap + install dart code debugger
+  debugger = {           -- integrate with nvim dap + install dart code debugger
     enabled = false,
     run_via_dap = false, -- use dap instead of a plenary job to run flutter apps
     -- if empty dap will not stop on any exceptions, otherwise it will stop on those specified
@@ -150,7 +150,7 @@ flutter.setup {
     exception_breakpoints = {}
   },
   flutter_path = "/home/n1h41/flutter/bin/flutter", -- <-- this takes priority over the lookup
-  fvm = false,                                     -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
+  fvm = false,                                      -- takes priority over path, uses <workspace>/.fvm/flutter_sdk if enabled
   widget_guides = {
     enabled = true,
   },
@@ -186,7 +186,7 @@ flutter.setup {
       analysisExcludedFolders = { "<path-to-flutter-sdk-packages>" },
       renameFilesWithClasses = "prompt", -- "always"
       enableSnippets = true,
-      updateImportsOnRename = true, -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
+      updateImportsOnRename = true,      -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
     }
   }
 }
@@ -196,8 +196,40 @@ local util = require("lspconfig.util")
 lsp_zero.configure('gopls', {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl"--[[ , "templ" ]] },
   root_dir = util.root_pattern("go.mod", ".git", "go.work"),
+})
+
+lsp_zero.configure('templ', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lsp_zero.configure('html', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+
+lsp_zero.configure('htmx', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+
+lsp_zero.configure('emmet_language_server', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "templ" },
+})
+
+lsp_zero.configure('tailwindcss', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+  init_options = { userLanguages = { templ = "html" } },
+  root_dir = util.root_pattern("tailwind.config.js", "postcss.config.js", "tailwind.config.ts", "postcss.config.ts",
+    "package.json"),
 })
 
 lsp_zero.setup()
