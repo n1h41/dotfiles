@@ -20,6 +20,7 @@ onedark.setup({
     ["DashboardShortCut"] = { fg = "white" },
     ["NormalFloat"] = { bg = "NONE" },
     ["HoverBorder"] = { bg = "NONE" },
+    ["SagaBorder"] = { bg = "NONE" },
   }
 })
 

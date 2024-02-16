@@ -43,6 +43,7 @@ local plugins = {
   -- Theme
   {
     'svrana/neosolarized.nvim',
+    lazy = true,
     dependencies = { 'tjdevries/colorbuddy.nvim' }
   },
   {
@@ -136,30 +137,17 @@ local plugins = {
     }
   },
   -- Git
-  "tpope/vim-fugitive",
+  {
+    "tpope/vim-fugitive",
+    lazy = true,
+  },
   {
     "lewis6991/gitsigns.nvim",
-    --[[ opts = {
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
-      end,
-    } ]]
   },
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
+    lazy = true,
     version = "*",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -170,6 +158,7 @@ local plugins = {
   },
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
@@ -182,6 +171,7 @@ local plugins = {
   {
     'akinsho/toggleterm.nvim',
     version = "*",
+    lazy = true,
     config = function()
       require("toggleterm").setup(
         {
@@ -224,6 +214,7 @@ local plugins = {
   },
   -- Live Server
   {
+    lazy = true,
     'barrett-ruth/live-server.nvim',
     config = function()
       require('live-server').setup()
@@ -232,6 +223,7 @@ local plugins = {
   -- Debugger
   {
     'mfussenegger/nvim-dap',
+    lazy = true,
     dependencies = {
       'nvim-telescope/telescope-dap.nvim',
       'rcarriga/nvim-dap-ui',
@@ -293,17 +285,20 @@ local plugins = {
   },
   -- Golang Debugger
   {
-    "leoluz/nvim-dap-go"
+    "leoluz/nvim-dap-go",
   },
   -- Database Management
   {
     "tpope/vim-dadbod",
+    lazy = true,
   },
   {
     "kristijanhusak/vim-dadbod-ui",
+    lazy = true,
   },
   {
     "kristijanhusak/vim-dadbod-completion",
+    lazy = true,
   },
   -- ChatGPT
   -- {
@@ -321,9 +316,10 @@ local plugins = {
   --   }
   -- }
   {
-    'navarasu/onedark.nvim'
+    'navarasu/onedark.nvim',
+    lazy = true,
   },
-  { "catppuccin/nvim",   name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",   name = "catppuccin", priority = 1000, lazy = true, },
   -- lazy.nvim
   --[[ {
     "folke/noice.nvim",
@@ -344,21 +340,16 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     opts = {
-    }
+    },
+    lazy = true,
   },
   -- PGSQL
   { 'lifepillar/pgsql.vim' },
   -- Trouble
   {
     "folke/trouble.nvim",
-
+    lazy = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
   },
   -- Golang extras
   {
@@ -366,22 +357,27 @@ local plugins = {
     dependencies = { -- dependencies
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-    }
+    },
+    lazy = true,
   },
   -- Vscode theme
   {
-    'Mofiqul/vscode.nvim'
+    'Mofiqul/vscode.nvim',
+    lazy = true,
   },
   -- Llama
   {
-    'jpmcb/nvim-llama'
+    'jpmcb/nvim-llama',
+    lazy = true,
   },
   -- Diffview
   {
-    "sindrets/diffview.nvim"
+    "sindrets/diffview.nvim",
+    lazy = true,
   },
   -- Rest
   {
+    lazy = true,
     "rest-nvim/rest.nvim",
     dependencies = { { "nvim-lua/plenary.nvim" } },
     config = function()
@@ -390,12 +386,20 @@ local plugins = {
       })
     end
   },
-  -- Live server
+  -- Undotree
   {
-    'barrett-ruth/live-server.nvim',
-    build = 'npm -g install live-server',
-    config = true
-  }
+    lazy = true,
+    'mbbill/undotree',
+  },
+  -- Neotest
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-go",
+    },
+  },
 }
 
 require('lazy').setup(plugins, {})
